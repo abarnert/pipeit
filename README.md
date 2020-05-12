@@ -79,8 +79,8 @@ Here's another example:
 
 ... which is equivalent to:
 
-    >>> print(filter(re.compile('a').search,
-    ...              reversed('abc def bab qqq'.split())),
+    >>> print(*filter(re.compile('a').search,
+    ...               reversed('abc def bab qqq'.split())),
     ...       sep='-')
     
 (Notice that `pprint` is one of the few useful cases for `pipestar` rather
@@ -97,12 +97,12 @@ Or, if you want to return the joined-up string rather than print it:
 ... as opposed to:
 
     >>> '-'.join(filter(re.compile('a').search,
-    ...                reversed('abc def bab qqq'.split())))
+    ...                 reversed('abc def bab qqq'.split())))
 
 The pipe version makes it clear what order things are happening in.
 We're talking an iterable and passing it through one pipe after another.
 
-But of course you can write the same thing just as explicitly today:
+But of course you can write the same thing in proper order today:
 
     >>> words = 'abc def bab qqq'.split()
     >>> revwords = reversed(words)
